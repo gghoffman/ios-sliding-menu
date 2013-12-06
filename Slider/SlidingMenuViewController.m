@@ -150,6 +150,7 @@ CGPoint startingCenter;
 -(void) dissmissMenu: (menu_hidden_callback) callback
 {
     [self.slidingMenuDelegate slidingMenuControllerWillHideMenu:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:Notification_Menu_Hidding object:self];
     
     UIView *slidingView = [self.controllersSetup objectForKey:self.selectedViewController.title];
     [UIView animateWithDuration:self.speed animations:^{
@@ -163,12 +164,14 @@ CGPoint startingCenter;
             callback();
         }
         [self.slidingMenuDelegate slidingMenuControllerDidHideMenu:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:Notification_Menu_Hidden object:self];
     }];
 }
 
 -(void) openMenu
 {
     [self.slidingMenuDelegate slidingMenuControllerWillShowMenu:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:Notification_Menu_Showing object:self];
     
     UIView *slidingView = [self.controllersSetup objectForKey:self.selectedViewController.title];
     [UIView animateWithDuration:self.speed animations:^{
@@ -177,6 +180,7 @@ CGPoint startingCenter;
         self.blackPanel.alpha = 1.0 - (self.leftPadding / self.blackPanel.frame.size.width);
     } completion:^(BOOL finished) {
         [self.slidingMenuDelegate slidingMenuControllerDidShowMenu:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:Notification_Menu_Shown object:self];
     }];
 }
 
@@ -188,6 +192,7 @@ CGPoint startingCenter;
     if(gest.state == UIGestureRecognizerStateBegan){
         
         [self.slidingMenuDelegate slidingMenuControllerDidStartMovingMenu:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:Notification_Menu_Moving object:self];
         
         startingPoint = point;
         startingCenter = slidingView.center;
