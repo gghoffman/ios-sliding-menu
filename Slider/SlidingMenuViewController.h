@@ -49,11 +49,11 @@ typedef void(^menu_hidden_callback)(void);
  Notification keys brocasting from this object. These coorospond to the similarly
  named SlidingMenuViewControllerDelegate methods.
  */
-NSString *Notification_Menu_Moving = @"MenuMoving";
-NSString *Notification_Menu_Showing = @"MenuShowing";
-NSString *Notification_Menu_Shown = @"MenuShown";
-NSString *Notification_Menu_Hidding = @"MenuHidding";
-NSString *Notification_Menu_Hidden = @"MenuHidden";
+//NSString *Notification_Menu_Moving = @"MenuMoving";
+//NSString *Notification_Menu_Showing = @"MenuShowing";
+//NSString *Notification_Menu_Shown = @"MenuShown";
+//NSString *Notification_Menu_Hidding = @"MenuHidding";
+//NSString *Notification_Menu_Hidden = @"MenuHidden";
 
 /*
  

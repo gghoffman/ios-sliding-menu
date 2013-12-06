@@ -63,16 +63,9 @@
 {
     if(indexPath.row != self.selectedIndex){
         [self dissmissMenu:^{
-            [UIView transitionFromView:self.selectedViewController.view
-                                toView:[[self.viewControllers objectAtIndex:indexPath.row] view]
-                              duration:self.speed
-                               options:UIViewAnimationOptionTransitionCrossDissolve
-                            completion:^(BOOL finished) {
-                                NSLog(@"vc: %@", self.selectedViewController);
-                                [self setSelectedIndex:indexPath.row];
-                                [self registerSwipeListenerFor:self.selectedViewController];
-                            }];
             [tableView deselectRowAtIndexPath:indexPath animated:YES];
+            [self setSelectedIndex:indexPath.row];
+            [self registerSwipeListenerFor:self.selectedViewController];
         }];
     }else{
         [self dissmissMenu:^{
@@ -105,27 +98,24 @@
 
 -(void) registerSwipeListenerFor: (UIViewController *) controller
 {
-    if(![self.controllersSetup objectForKey:controller.title]){
-        
-        UIPanGestureRecognizer *gest = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didPan:)];
-        [gest setDelegate:self];
-        [controller.view addGestureRecognizer:gest];
-        
-        CGRect frame = CGRectMake(controller.view.frame.size.width, 0, controller.view.frame.size.width, controller.view.frame.size.height);
-        UIView *slidingView = [[UIView alloc] initWithFrame:frame];
-        [slidingView setBackgroundColor:self.slidingViewBackgroundColor];
-        [controller.view addSubview:slidingView];
-        
-        UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, slidingView.frame.size.width, slidingView.frame.size.height - 60)];
-        [table setBackgroundColor:[UIColor clearColor]];
-        [table setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-        [table setDataSource:self];
-        [table setDelegate:self];
-        [table setScrollEnabled:NO];
-        [slidingView addSubview:table];
-        
-        [self.controllersSetup setObject:slidingView forKey:controller.title];
-    }
+    UIPanGestureRecognizer *gest = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didPan:)];
+    [gest setDelegate:self];
+    [controller.view addGestureRecognizer:gest];
+    
+    CGRect frame = CGRectMake(controller.view.frame.size.width, 0, controller.view.frame.size.width, controller.view.frame.size.height);
+    UIView *slidingView = [[UIView alloc] initWithFrame:frame];
+    [slidingView setBackgroundColor:self.slidingViewBackgroundColor];
+    [controller.view addSubview:slidingView];
+    
+    UITableView *table = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, slidingView.frame.size.width, slidingView.frame.size.height - 60)];
+    [table setBackgroundColor:[UIColor clearColor]];
+    [table setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [table setDataSource:self];
+    [table setDelegate:self];
+    [table setScrollEnabled:NO];
+    [slidingView addSubview:table];
+    
+    [self.controllersSetup setObject:slidingView forKey:controller.title];
 }
 
 #pragma mark UITabBarControllerDelegate
@@ -150,7 +140,7 @@ CGPoint startingCenter;
 -(void) dissmissMenu: (menu_hidden_callback) callback
 {
     [self.slidingMenuDelegate slidingMenuControllerWillHideMenu:self];
-    [[NSNotificationCenter defaultCenter] postNotificationName:Notification_Menu_Hidding object:self];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:Notification_Menu_Hidding object:self];
     
     UIView *slidingView = [self.controllersSetup objectForKey:self.selectedViewController.title];
     [UIView animateWithDuration:self.speed animations:^{
@@ -164,14 +154,14 @@ CGPoint startingCenter;
             callback();
         }
         [self.slidingMenuDelegate slidingMenuControllerDidHideMenu:self];
-        [[NSNotificationCenter defaultCenter] postNotificationName:Notification_Menu_Hidden object:self];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:Notification_Menu_Hidden object:self];
     }];
 }
 
 -(void) openMenu
 {
     [self.slidingMenuDelegate slidingMenuControllerWillShowMenu:self];
-    [[NSNotificationCenter defaultCenter] postNotificationName:Notification_Menu_Showing object:self];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:Notification_Menu_Showing object:self];
     
     UIView *slidingView = [self.controllersSetup objectForKey:self.selectedViewController.title];
     [UIView animateWithDuration:self.speed animations:^{
@@ -180,7 +170,7 @@ CGPoint startingCenter;
         self.blackPanel.alpha = 1.0 - (self.leftPadding / self.blackPanel.frame.size.width);
     } completion:^(BOOL finished) {
         [self.slidingMenuDelegate slidingMenuControllerDidShowMenu:self];
-        [[NSNotificationCenter defaultCenter] postNotificationName:Notification_Menu_Shown object:self];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:Notification_Menu_Shown object:self];
     }];
 }
 
@@ -192,7 +182,7 @@ CGPoint startingCenter;
     if(gest.state == UIGestureRecognizerStateBegan){
         
         [self.slidingMenuDelegate slidingMenuControllerDidStartMovingMenu:self];
-        [[NSNotificationCenter defaultCenter] postNotificationName:Notification_Menu_Moving object:self];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:Notification_Menu_Moving object:self];
         
         startingPoint = point;
         startingCenter = slidingView.center;
