@@ -7,14 +7,27 @@
 
 #import "SlidingMenuViewController.h"
 
+// Notification key
+NSString *const SlidingMenuMoving = @"SlidingMenuMoving";
+NSString *const SlidingMenuHidding = @"SlidingMenuHiding";
+NSString *const SlidingMenuHidden = @"SlidingMenuHidden";
+NSString *const SlidingMenuShowing = @"SlidingMenuShowing";
+NSString *const SlidingMenuShown = @"SlidingMenuShown";
+
 @interface SlidingMenuViewController () <UITabBarControllerDelegate, UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate>
+
+// Instance State
 @property (strong, nonatomic) NSMutableDictionary *controllersSetup;
 @property (strong, nonatomic) UIView *blackPanel;
+
+// Settings
 @property (nonatomic) NSUInteger leftPadding;
 @property (nonatomic) float threshold;
 @property (nonatomic) float speed;
+@property (nonatomic) NSUInteger autoCloseTolerance;
 @property (strong, nonatomic) UIColor *slidingViewBackgroundColor;
 @property (strong, nonatomic) UIColor *slidingViewTextColor;
+
 @end
 
 @implementation SlidingMenuViewController
@@ -24,6 +37,7 @@
     [super viewDidLoad];
     [self setControllersSetup:[NSMutableDictionary dictionary]];
     
+    [self setAutoCloseTolerance:20];
     [self setLeftPadding:100];
     [self setThreshold:0.75];
     [self setSpeed:0.25];
@@ -140,7 +154,7 @@ CGPoint startingCenter;
 -(void) dissmissMenu: (menu_hidden_callback) callback
 {
     [self.slidingMenuDelegate slidingMenuControllerWillHideMenu:self];
-//    [[NSNotificationCenter defaultCenter] postNotificationName:Notification_Menu_Hidding object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:SlidingMenuHidding object:self];
     
     UIView *slidingView = [self.controllersSetup objectForKey:self.selectedViewController.title];
     [UIView animateWithDuration:self.speed animations:^{
@@ -154,14 +168,14 @@ CGPoint startingCenter;
             callback();
         }
         [self.slidingMenuDelegate slidingMenuControllerDidHideMenu:self];
-//        [[NSNotificationCenter defaultCenter] postNotificationName:Notification_Menu_Hidden object:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:SlidingMenuHidden object:self];
     }];
 }
 
 -(void) openMenu
 {
     [self.slidingMenuDelegate slidingMenuControllerWillShowMenu:self];
-//    [[NSNotificationCenter defaultCenter] postNotificationName:Notification_Menu_Showing object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:SlidingMenuShowing object:self];
     
     UIView *slidingView = [self.controllersSetup objectForKey:self.selectedViewController.title];
     [UIView animateWithDuration:self.speed animations:^{
@@ -170,7 +184,7 @@ CGPoint startingCenter;
         self.blackPanel.alpha = 1.0 - (self.leftPadding / self.blackPanel.frame.size.width);
     } completion:^(BOOL finished) {
         [self.slidingMenuDelegate slidingMenuControllerDidShowMenu:self];
-//        [[NSNotificationCenter defaultCenter] postNotificationName:Notification_Menu_Shown object:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:SlidingMenuShown object:self];
     }];
 }
 
@@ -182,7 +196,7 @@ CGPoint startingCenter;
     if(gest.state == UIGestureRecognizerStateBegan){
         
         [self.slidingMenuDelegate slidingMenuControllerDidStartMovingMenu:self];
-//        [[NSNotificationCenter defaultCenter] postNotificationName:Notification_Menu_Moving object:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:SlidingMenuMoving object:self];
         
         startingPoint = point;
         startingCenter = slidingView.center;
@@ -191,10 +205,13 @@ CGPoint startingCenter;
         
     }else if(gest.state == UIGestureRecognizerStateEnded){
         
-        if(slidingView.frame.origin.x > (self.view.frame.size.width * self.speed) && point.x > startingPoint.x){
+        if(slidingView.frame.origin.x > (self.view.frame.size.width * self.speed)
+           && (point.x - self.autoCloseTolerance) > startingPoint.x){
             [self dissmissMenu:nil];
+            
         }else if(slidingView.frame.origin.x < (self.view.frame.size.width * self.threshold)){
             [self openMenu];
+            
         }else{
             [self dissmissMenu:nil];
         }

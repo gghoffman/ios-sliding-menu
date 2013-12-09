@@ -19,6 +19,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    SlidingMenuViewController *slidingMenu = (SlidingMenuViewController *) self.tabBarController;
+    [[NSNotificationCenter defaultCenter] addObserverForName:nil
+                                                      object:slidingMenu
+                                                       queue:nil
+                                                  usingBlock:^(NSNotification *note) {
+        
+                                                      NSLog(@"note: %@", note.name);
+    }];
+    
+    
 }
 
 - (IBAction)calloutMenuButtonWasPressed:(id)sender
