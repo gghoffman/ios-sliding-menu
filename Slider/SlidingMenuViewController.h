@@ -94,6 +94,11 @@ extern NSString *const SlidingMenuShown;
 @property (weak, nonatomic) id<SlidingMenuViewControllerDelegate> slidingMenuDelegate;
 
 /*
+ True, if and only if the panel is in the fully out/displayed position.
+ */
+@property (nonatomic) BOOL hasPanelOut;
+
+/*
  This method will cause the menu to animate to the hidden position calling the provided
  (OPTIONAL) callback if you should feel in need of such.
  */

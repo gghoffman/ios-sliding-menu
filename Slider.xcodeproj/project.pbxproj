@@ -22,6 +22,8 @@
 		8975B74C18510C0E00620998 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8975B74A18510C0E00620998 /* InfoPlist.strings */; };
 		8975B74E18510C0E00620998 /* SliderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8975B74D18510C0E00620998 /* SliderTests.m */; };
 		8975B7601851813500620998 /* RedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8975B75F1851813500620998 /* RedViewController.m */; };
+		89EC814B18565C8000D5A8D5 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 89EC814918565C8000D5A8D5 /* LICENSE */; };
+		89EC814C18565C8000D5A8D5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 89EC814A18565C8000D5A8D5 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		8975B74D18510C0E00620998 /* SliderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SliderTests.m; sourceTree = "<group>"; };
 		8975B75E1851813500620998 /* RedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedViewController.h; sourceTree = "<group>"; };
 		8975B75F1851813500620998 /* RedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedViewController.m; sourceTree = "<group>"; };
+		89EC814918565C8000D5A8D5 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		89EC814A18565C8000D5A8D5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 		8975B71618510C0E00620998 = {
 			isa = PBXGroup;
 			children = (
+				89EC814918565C8000D5A8D5 /* LICENSE */,
+				89EC814A18565C8000D5A8D5 /* README.md */,
 				8975B72818510C0E00620998 /* Slider */,
 				8975B74718510C0E00620998 /* SliderTests */,
 				8975B72118510C0E00620998 /* Frameworks */,
@@ -235,6 +241,8 @@
 			files = (
 				8975B73B18510C0E00620998 /* Images.xcassets in Resources */,
 				8975B72D18510C0E00620998 /* InfoPlist.strings in Resources */,
+				89EC814C18565C8000D5A8D5 /* README.md in Resources */,
+				89EC814B18565C8000D5A8D5 /* LICENSE in Resources */,
 				8975B73618510C0E00620998 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +474,7 @@
 				8975B75318510C0E00620998 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8975B75418510C0E00620998 /* Build configuration list for PBXNativeTarget "SliderTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +483,7 @@
 				8975B75618510C0E00620998 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

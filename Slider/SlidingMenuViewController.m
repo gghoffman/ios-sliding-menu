@@ -22,9 +22,10 @@ NSString *const SlidingMenuShown = @"SlidingMenuShown";
 
 // Settings
 @property (nonatomic) NSUInteger leftPadding;
+@property (nonatomic) NSUInteger autoCloseTolerance;
+@property (nonatomic) NSUInteger rightSideInitiationGutter;
 @property (nonatomic) float threshold;
 @property (nonatomic) float speed;
-@property (nonatomic) NSUInteger autoCloseTolerance;
 @property (strong, nonatomic) UIColor *slidingViewBackgroundColor;
 @property (strong, nonatomic) UIColor *slidingViewTextColor;
 
@@ -37,7 +38,8 @@ NSString *const SlidingMenuShown = @"SlidingMenuShown";
     [super viewDidLoad];
     [self setControllersSetup:[NSMutableDictionary dictionary]];
     
-    [self setAutoCloseTolerance:20];
+    [self setRightSideInitiationGutter:30];
+    [self setAutoCloseTolerance:30];
     [self setLeftPadding:100];
     [self setThreshold:0.75];
     [self setSpeed:0.25];
@@ -145,6 +147,7 @@ NSString *const SlidingMenuShown = @"SlidingMenuShown";
 
 CGPoint startingPoint;
 CGPoint startingCenter;
+BOOL shouldContinuePanning = YES;
 
 -(void) shouldDissmissMenu
 {
@@ -169,6 +172,7 @@ CGPoint startingCenter;
         }
         [self.slidingMenuDelegate slidingMenuControllerDidHideMenu:self];
         [[NSNotificationCenter defaultCenter] postNotificationName:SlidingMenuHidden object:self];
+        [self setHasPanelOut:NO];
     }];
 }
 
@@ -185,6 +189,7 @@ CGPoint startingCenter;
     } completion:^(BOOL finished) {
         [self.slidingMenuDelegate slidingMenuControllerDidShowMenu:self];
         [[NSNotificationCenter defaultCenter] postNotificationName:SlidingMenuShown object:self];
+        [self setHasPanelOut:YES];
     }];
 }
 
@@ -195,40 +200,50 @@ CGPoint startingCenter;
     
     if(gest.state == UIGestureRecognizerStateBegan){
         
-        [self.slidingMenuDelegate slidingMenuControllerDidStartMovingMenu:self];
-        [[NSNotificationCenter defaultCenter] postNotificationName:SlidingMenuMoving object:self];
-        
         startingPoint = point;
         startingCenter = slidingView.center;
         
-        [self.blackPanel setCenter:CGPointMake(slidingView.center.x - slidingView.frame.size.width, slidingView.center.y)];
+        if(point.x > (self.view.frame.size.width - self.rightSideInitiationGutter)){
+            
+            [self.slidingMenuDelegate slidingMenuControllerDidStartMovingMenu:self];
+            [[NSNotificationCenter defaultCenter] postNotificationName:SlidingMenuMoving object:self];
+            [self.blackPanel setCenter:CGPointMake(slidingView.center.x - slidingView.frame.size.width, slidingView.center.y)];
+            
+        }else{
+            shouldContinuePanning = NO;
+        }
         
     }else if(gest.state == UIGestureRecognizerStateEnded){
         
-        if(slidingView.frame.origin.x > (self.view.frame.size.width * self.speed)
-           && (point.x - self.autoCloseTolerance) > startingPoint.x){
-            [self dissmissMenu:nil];
-            
-        }else if(slidingView.frame.origin.x < (self.view.frame.size.width * self.threshold)){
-            [self openMenu];
-            
-        }else{
-            [self dissmissMenu:nil];
+        if(shouldContinuePanning || self.hasPanelOut){
+            if(slidingView.frame.origin.x > (self.view.frame.size.width * self.speed)
+               && (point.x - self.autoCloseTolerance) > startingPoint.x){
+                [self dissmissMenu:nil];
+                
+            }else if(slidingView.frame.origin.x < (self.view.frame.size.width * self.threshold)){
+                [self openMenu];
+                
+            }else{
+                [self dissmissMenu:nil];
+            }
         }
+        
+        shouldContinuePanning = YES;
         
     }else{
         
-        // Move the menu according to user touch
-        NSInteger newX = startingCenter.x - (startingPoint.x - point.x);
-        NSInteger leftPaddingCenterAdjusted = self.leftPadding + (slidingView.bounds.size.width / 2);
-        
-        if(newX < leftPaddingCenterAdjusted){
-            newX = leftPaddingCenterAdjusted;
+        if(shouldContinuePanning || self.hasPanelOut){
+            NSInteger newX = startingCenter.x - (startingPoint.x - point.x);
+            NSInteger leftPaddingCenterAdjusted = self.leftPadding + (slidingView.bounds.size.width / 2);
+            
+            if(newX < leftPaddingCenterAdjusted){
+                newX = leftPaddingCenterAdjusted;
+            }
+            
+            [slidingView setCenter:CGPointMake(newX, slidingView.center.y)];
+            [self.blackPanel setCenter:CGPointMake(slidingView.center.x - slidingView.frame.size.width, slidingView.center.y)];
+            [self.blackPanel setAlpha:(1.0 - ((float)slidingView.frame.origin.x) / (float)self.view.frame.size.width)];
         }
-        
-        [slidingView setCenter:CGPointMake(newX, slidingView.center.y)];
-        [self.blackPanel setCenter:CGPointMake(slidingView.center.x - slidingView.frame.size.width, slidingView.center.y)];
-        [self.blackPanel setAlpha:(1.0 - ((float)slidingView.frame.origin.x) / (float)self.view.frame.size.width)]; // TODO This for everything
     }
 }
 
