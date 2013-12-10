@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		894CBBE11857742300AA39DA /* screenshot1.png in Resources */ = {isa = PBXBuildFile; fileRef = 894CBBDF1857742300AA39DA /* screenshot1.png */; };
-		894CBBE21857742300AA39DA /* screenshot2.png in Resources */ = {isa = PBXBuildFile; fileRef = 894CBBE01857742300AA39DA /* screenshot2.png */; };
+		891B6FB118578295002851B0 /* screenshot1.png in Resources */ = {isa = PBXBuildFile; fileRef = 891B6FAF18578295002851B0 /* screenshot1.png */; };
+		891B6FB218578295002851B0 /* screenshot2.png in Resources */ = {isa = PBXBuildFile; fileRef = 891B6FB018578295002851B0 /* screenshot2.png */; };
 		894CBBE51857762900AA39DA /* ChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 894CBBE41857762900AA39DA /* ChildViewController.m */; };
 		8975B72318510C0E00620998 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8975B72218510C0E00620998 /* Foundation.framework */; };
 		8975B72518510C0E00620998 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8975B72418510C0E00620998 /* CoreGraphics.framework */; };
@@ -40,8 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		894CBBDF1857742300AA39DA /* screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot1.png; sourceTree = "<group>"; };
-		894CBBE01857742300AA39DA /* screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot2.png; sourceTree = "<group>"; };
+		891B6FAF18578295002851B0 /* screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot1.png; sourceTree = "<group>"; };
+		891B6FB018578295002851B0 /* screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot2.png; sourceTree = "<group>"; };
 		894CBBE31857762900AA39DA /* ChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildViewController.h; sourceTree = "<group>"; };
 		894CBBE41857762900AA39DA /* ChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildViewController.m; sourceTree = "<group>"; };
 		8975B71F18510C0E00620998 /* Slider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slider.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,8 +96,8 @@
 		8975B71618510C0E00620998 = {
 			isa = PBXGroup;
 			children = (
-				894CBBDF1857742300AA39DA /* screenshot1.png */,
-				894CBBE01857742300AA39DA /* screenshot2.png */,
+				891B6FAF18578295002851B0 /* screenshot1.png */,
+				891B6FB018578295002851B0 /* screenshot2.png */,
 				89EC814918565C8000D5A8D5 /* LICENSE */,
 				89EC814A18565C8000D5A8D5 /* README.md */,
 				8975B72818510C0E00620998 /* Slider */,
@@ -253,8 +253,8 @@
 				8975B73B18510C0E00620998 /* Images.xcassets in Resources */,
 				8975B72D18510C0E00620998 /* InfoPlist.strings in Resources */,
 				89EC814C18565C8000D5A8D5 /* README.md in Resources */,
-				894CBBE21857742300AA39DA /* screenshot2.png in Resources */,
-				894CBBE11857742300AA39DA /* screenshot1.png in Resources */,
+				891B6FB218578295002851B0 /* screenshot2.png in Resources */,
+				891B6FB118578295002851B0 /* screenshot1.png in Resources */,
 				89EC814B18565C8000D5A8D5 /* LICENSE in Resources */,
 				8975B73618510C0E00620998 /* Main.storyboard in Resources */,
 			);
