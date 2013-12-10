@@ -5,5 +5,6 @@ A simple right side slideout menu for iOS. This library subclasses UITabBarViewC
 
 The SlidingMenuViewControler has a slidingMenuDelegate and gives off notifications via the NSNotificationCenter. Both of these are described in the SlidingMenuViewControler.h file.
 
+![](https://raw.github.com/gghoffman/sliding_view/master/screenshot1.png)
 
-
+![](https://raw.github.com/gghoffman/sliding_view/master/screenshot2.png)
