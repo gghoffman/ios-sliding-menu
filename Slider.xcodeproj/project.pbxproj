@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		894CBBE11857742300AA39DA /* screenshot1.png in Resources */ = {isa = PBXBuildFile; fileRef = 894CBBDF1857742300AA39DA /* screenshot1.png */; };
 		894CBBE21857742300AA39DA /* screenshot2.png in Resources */ = {isa = PBXBuildFile; fileRef = 894CBBE01857742300AA39DA /* screenshot2.png */; };
+		894CBBE51857762900AA39DA /* ChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 894CBBE41857762900AA39DA /* ChildViewController.m */; };
 		8975B72318510C0E00620998 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8975B72218510C0E00620998 /* Foundation.framework */; };
 		8975B72518510C0E00620998 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8975B72418510C0E00620998 /* CoreGraphics.framework */; };
 		8975B72718510C0E00620998 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8975B72618510C0E00620998 /* UIKit.framework */; };
@@ -41,6 +42,8 @@
 /* Begin PBXFileReference section */
 		894CBBDF1857742300AA39DA /* screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot1.png; sourceTree = "<group>"; };
 		894CBBE01857742300AA39DA /* screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot2.png; sourceTree = "<group>"; };
+		894CBBE31857762900AA39DA /* ChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildViewController.h; sourceTree = "<group>"; };
+		894CBBE41857762900AA39DA /* ChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildViewController.m; sourceTree = "<group>"; };
 		8975B71F18510C0E00620998 /* Slider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8975B72218510C0E00620998 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8975B72418510C0E00620998 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -136,6 +139,8 @@
 				8975B72918510C0E00620998 /* Supporting Files */,
 				8975B75E1851813500620998 /* RedViewController.h */,
 				8975B75F1851813500620998 /* RedViewController.m */,
+				894CBBE31857762900AA39DA /* ChildViewController.h */,
+				894CBBE41857762900AA39DA /* ChildViewController.m */,
 			);
 			path = Slider;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 			files = (
 				8975B7601851813500620998 /* RedViewController.m in Sources */,
 				8975B73918510C0E00620998 /* SlidingMenuViewController.m in Sources */,
+				894CBBE51857762900AA39DA /* ChildViewController.m in Sources */,
 				8975B73318510C0E00620998 /* AppDelegate.m in Sources */,
 				8975B72F18510C0E00620998 /* main.m in Sources */,
 			);

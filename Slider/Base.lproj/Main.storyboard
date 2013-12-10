@@ -41,7 +41,7 @@
         <scene sceneID="VXH-zI-SOf">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="1E8-rv-vEt" customClass="SlidingMenuViewController" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="MVi-O1-UWO">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -57,10 +57,10 @@
             </objects>
             <point key="canvasLocation" x="-148" y="404"/>
         </scene>
-        <!--View Controller - Previous Controller-->
+        <!--Child View Controller - Previous Controller-->
         <scene sceneID="4q9-Ni-gUF">
             <objects>
-                <viewController title="Previous Controller" id="Hll-LH-PpO" sceneMemberID="viewController">
+                <viewController title="Previous Controller" id="Hll-LH-PpO" customClass="ChildViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jos-Md-FGH"/>
                         <viewControllerLayoutGuide type="bottom" id="s19-oZ-a3q"/>
@@ -89,10 +89,10 @@
             </objects>
             <point key="canvasLocation" x="912" y="730"/>
         </scene>
-        <!--View Controller-->
+        <!--Child View Controller-->
         <scene sceneID="7i2-Qy-i5w">
             <objects>
-                <viewController id="o9T-rl-k77" sceneMemberID="viewController">
+                <viewController id="o9T-rl-k77" customClass="ChildViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n6f-7H-VDp"/>
                         <viewControllerLayoutGuide type="bottom" id="JpP-Et-2ii"/>

@@ -38,11 +38,11 @@ NSString *const SlidingMenuShown = @"SlidingMenuShown";
     [super viewDidLoad];
     [self setControllersSetup:[NSMutableDictionary dictionary]];
     
-    [self setRightSideInitiationGutter:30];
-    [self setAutoCloseTolerance:30];
-    [self setLeftPadding:100];
-    [self setThreshold:0.75];
-    [self setSpeed:0.25];
+    [self setRightSideInitiationGutter:RIGHT_SIDE_GUTTER];
+    [self setAutoCloseTolerance:AUTO_CLOSE_TOLERANCE];
+    [self setLeftPadding:LEFT_PADDING];
+    [self setThreshold:(1.0 - OPEN_THRESHOLD)];
+    [self setSpeed:ANIMATION_DURATION];
     [self setSlidingViewBackgroundColor:[UIColor darkGrayColor]];
     [self setSlidingViewTextColor:[UIColor whiteColor]];
     

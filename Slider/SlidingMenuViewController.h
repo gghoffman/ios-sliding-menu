@@ -8,6 +8,37 @@
 #import <UIKit/UIKit.h>
 
 /*
+ CONFIGURATION
+ */
+
+/*
+ Specifies the swipable area on the right side (in pixels) that allows the menu to be pulled out.
+ */
+#define RIGHT_SIDE_GUTTER 30
+
+/*
+ When the menu is open and you pan to the right, this is the minimum number of pixels you must
+ pan to the right in order to trigger the menu close function when you stop the pan.
+ */
+#define AUTO_CLOSE_TOLERANCE 30
+
+/*
+ How many pixels is between the top level view and the left edge of the menu when it is locked
+ into the open position.
+ */
+#define LEFT_PADDING 100
+
+/*
+ Percentage of the screen the menu must be drug out in order to trigger an open animation.
+ */
+#define OPEN_THRESHOLD 0.25
+
+/*
+ Time in seconds the open/close animation will take.
+ */
+#define ANIMATION_DURATION 0.25
+
+/*
  Used as a callback when -(void) dissmissMenu: (menu_hidden_callback) callback; is called.
  */
 typedef void(^menu_hidden_callback)(void);
