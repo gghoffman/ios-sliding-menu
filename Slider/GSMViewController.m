@@ -1,11 +1,11 @@
 //
-//  SlidingMenuViewController.h
+//  GSMViewController.m
 //
 //  Created by Gunnar Hoffman on 12/5/13.
 //  Copyright (c) 2013 Ball State University.
 //
 
-#import "SlidingMenuViewController.h"
+#import "GSMViewController.h"
 
 // Notification key
 NSString *const SlidingMenuMoving = @"SlidingMenuMoving";
@@ -14,7 +14,7 @@ NSString *const SlidingMenuHidden = @"SlidingMenuHidden";
 NSString *const SlidingMenuShowing = @"SlidingMenuShowing";
 NSString *const SlidingMenuShown = @"SlidingMenuShown";
 
-@interface SlidingMenuViewController () <UITabBarControllerDelegate, UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface GSMViewController () <UITabBarControllerDelegate, UIGestureRecognizerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 // Instance State
 @property (strong, nonatomic) NSMutableDictionary *controllersSetup;
@@ -31,7 +31,7 @@ NSString *const SlidingMenuShown = @"SlidingMenuShown";
 
 @end
 
-@implementation SlidingMenuViewController
+@implementation GSMViewController
 
 - (void)viewDidLoad
 {

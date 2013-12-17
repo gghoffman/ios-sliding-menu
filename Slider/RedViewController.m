@@ -8,7 +8,7 @@
 
 #import "RedViewController.h"
 
-#import "SlidingMenuViewController.h"
+#import "GSMViewController.h"
 
 @interface RedViewController ()
 
@@ -20,7 +20,7 @@
 {
     [super viewDidLoad];
     
-    SlidingMenuViewController *slidingMenu = (SlidingMenuViewController *) self.tabBarController;
+    GSMViewController *slidingMenu = (GSMViewController *) self.tabBarController;
     [[NSNotificationCenter defaultCenter] addObserverForName:nil
                                                       object:slidingMenu
                                                        queue:nil
@@ -34,8 +34,7 @@
 
 - (IBAction)calloutMenuButtonWasPressed:(id)sender
 {
-    SlidingMenuViewController *slidingController
-        = (SlidingMenuViewController *)self.tabBarController;
+    GSMViewController *slidingController = (GSMViewController *)self.tabBarController;
     [slidingController openMenu];
 }
 

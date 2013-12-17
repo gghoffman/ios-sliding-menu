@@ -17,7 +17,7 @@
 		8975B72F18510C0E00620998 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8975B72E18510C0E00620998 /* main.m */; };
 		8975B73318510C0E00620998 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8975B73218510C0E00620998 /* AppDelegate.m */; };
 		8975B73618510C0E00620998 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8975B73418510C0E00620998 /* Main.storyboard */; };
-		8975B73918510C0E00620998 /* SlidingMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8975B73818510C0E00620998 /* SlidingMenuViewController.m */; };
+		8975B73918510C0E00620998 /* GSMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8975B73818510C0E00620998 /* GSMViewController.m */; };
 		8975B73B18510C0E00620998 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8975B73A18510C0E00620998 /* Images.xcassets */; };
 		8975B74218510C0E00620998 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8975B74118510C0E00620998 /* XCTest.framework */; };
 		8975B74318510C0E00620998 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8975B72218510C0E00620998 /* Foundation.framework */; };
@@ -55,8 +55,8 @@
 		8975B73118510C0E00620998 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8975B73218510C0E00620998 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8975B73518510C0E00620998 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8975B73718510C0E00620998 /* SlidingMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SlidingMenuViewController.h; sourceTree = "<group>"; };
-		8975B73818510C0E00620998 /* SlidingMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlidingMenuViewController.m; sourceTree = "<group>"; };
+		8975B73718510C0E00620998 /* GSMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSMViewController.h; sourceTree = "<group>"; };
+		8975B73818510C0E00620998 /* GSMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSMViewController.m; sourceTree = "<group>"; };
 		8975B73A18510C0E00620998 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8975B74018510C0E00620998 /* SliderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SliderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8975B74118510C0E00620998 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -133,8 +133,8 @@
 				8975B73118510C0E00620998 /* AppDelegate.h */,
 				8975B73218510C0E00620998 /* AppDelegate.m */,
 				8975B73418510C0E00620998 /* Main.storyboard */,
-				8975B73718510C0E00620998 /* SlidingMenuViewController.h */,
-				8975B73818510C0E00620998 /* SlidingMenuViewController.m */,
+				8975B73718510C0E00620998 /* GSMViewController.h */,
+				8975B73818510C0E00620998 /* GSMViewController.m */,
 				8975B73A18510C0E00620998 /* Images.xcassets */,
 				8975B72918510C0E00620998 /* Supporting Files */,
 				8975B75E1851813500620998 /* RedViewController.h */,
@@ -276,7 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8975B7601851813500620998 /* RedViewController.m in Sources */,
-				8975B73918510C0E00620998 /* SlidingMenuViewController.m in Sources */,
+				8975B73918510C0E00620998 /* GSMViewController.m in Sources */,
 				894CBBE51857762900AA39DA /* ChildViewController.m in Sources */,
 				8975B73318510C0E00620998 /* AppDelegate.m in Sources */,
 				8975B72F18510C0E00620998 /* main.m in Sources */,

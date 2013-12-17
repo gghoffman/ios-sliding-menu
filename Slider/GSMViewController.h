@@ -1,5 +1,5 @@
 //
-//  SlidingMenuViewController.h
+//  GSMViewController.h
 //
 //  Created by Gunnar Hoffman on 12/5/13.
 //  Copyright (c) 2013 Ball State University.
@@ -43,42 +43,42 @@
  */
 typedef void(^menu_hidden_callback)(void);
 
-@class SlidingMenuViewController;
+@class GSMViewController;
 
-@protocol SlidingMenuViewControllerDelegate
+@protocol GSMViewControllerDelegate
 
 /*
  Whenever the menu starts moving this is called, generally this is triggered by a user
  pan gesture as when we actually know what the menu is doing the more descriptive delegate
  methods will be called.
  */
--(void) slidingMenuControllerDidStartMovingMenu: (SlidingMenuViewController *) controller;
+-(void) slidingMenuControllerDidStartMovingMenu: (GSMViewController *) controller;
 
 /*
  The menu is about to start animating to the closed position.
  */
--(void) slidingMenuControllerWillHideMenu: (SlidingMenuViewController *) controller;
+-(void) slidingMenuControllerWillHideMenu: (GSMViewController *) controller;
 
 /*
  The menu is about to start animating to the open position.
  */
--(void) slidingMenuControllerWillShowMenu: (SlidingMenuViewController *) controller;
+-(void) slidingMenuControllerWillShowMenu: (GSMViewController *) controller;
 
 /*
  The menu did finish animating to the closed position.
  */
--(void) slidingMenuControllerDidHideMenu: (SlidingMenuViewController *) controller;
+-(void) slidingMenuControllerDidHideMenu: (GSMViewController *) controller;
 
 /*
  The menu did finish animating to the open position.
  */
--(void) slidingMenuControllerDidShowMenu: (SlidingMenuViewController *) controller;
+-(void) slidingMenuControllerDidShowMenu: (GSMViewController *) controller;
 
 @end
 
 /*
  Notification keys brocasting from this object. These coorospond to the similarly
- named SlidingMenuViewControllerDelegate methods.
+ named GSMViewControllerDelegate methods.
  */
 extern NSString *const SlidingMenuMoving;
 extern NSString *const SlidingMenuHidding;
@@ -112,17 +112,17 @@ extern NSString *const SlidingMenuShown;
  ** Installation:
  
  1) Drag a UITabBarController onto your story board.
- 2) Change it's class type to SlidingMenuViewController.
+ 2) Change it's class type to GSMViewController.
  3) Provide storyboard title attributes for all direct children of the UITabBarController.
  4) Awesomeness.
  
  */
-@interface SlidingMenuViewController : UITabBarController
+@interface GSMViewController : UITabBarController
 
 /*
  Assign yourself if you want to receive notifcations when the menu moves about.
  */
-@property (weak, nonatomic) id<SlidingMenuViewControllerDelegate> slidingMenuDelegate;
+@property (weak, nonatomic) id<GSMViewControllerDelegate> slidingMenuDelegate;
 
 /*
  True, if and only if the panel is in the fully out/displayed position.
