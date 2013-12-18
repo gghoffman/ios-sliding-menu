@@ -154,7 +154,7 @@ BOOL shouldContinuePanning = YES;
     [self dissmissMenu:nil];
 }
 
--(void) dissmissMenu: (menu_hidden_callback) callback
+-(void) dissmissMenu: (void(^)()) callback
 {
     [self.slidingMenuDelegate slidingMenuControllerWillHideMenu:self];
     [[NSNotificationCenter defaultCenter] postNotificationName:SlidingMenuHidding object:self];

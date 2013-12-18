@@ -38,11 +38,6 @@
  */
 #define ANIMATION_DURATION 0.25
 
-/*
- Used as a callback when -(void) dissmissMenu: (menu_hidden_callback) callback; is called.
- */
-typedef void(^menu_hidden_callback)(void);
-
 @class GSMViewController;
 
 @protocol GSMViewControllerDelegate
@@ -133,7 +128,7 @@ extern NSString *const SlidingMenuShown;
  This method will cause the menu to animate to the hidden position calling the provided
  (OPTIONAL) callback if you should feel in need of such.
  */
--(void) dissmissMenu: (menu_hidden_callback) callback;
+-(void) dissmissMenu: (void(^)()) callback;
 
 /*
  Causes the animations to fire that bring the menu into view.
